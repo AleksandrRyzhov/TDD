@@ -8,4 +8,7 @@ describe('App', () => {
     wrapper.getByTestId('weather-current');
   });
 
+  test('Should navigate to weather screen with location', () => {
+      throw new Error('Test not implemented')
+  })
 });
