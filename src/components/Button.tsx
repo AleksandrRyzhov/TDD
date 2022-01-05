@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
   ViewProps,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
