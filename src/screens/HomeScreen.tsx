@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import WeatherCoordinates from '../components/WeatherCoordinates';
 import WeatherCurrent from '../components/WeatherCurrent';
-import {Colors} from '../constans';
+import {Colors} from '../constants';
 
 function HomeScreen() {
   const now = moment(new Date());

@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {Colors} from '../constans';
+import {Colors} from '../constants';
 import LocationService from '../services/LocationService';
 import Button from './Button';
 
@@ -21,7 +21,7 @@ function WeatherCurrent() {
     }
     setLoading(false);
   }, [navigation]);
-  
+
   return (
     <Button
       testID="weather-current"

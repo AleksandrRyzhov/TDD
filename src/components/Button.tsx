@@ -7,7 +7,7 @@ import {
   ViewProps,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Colors} from '../constans';
+import {Colors} from '../constants';
 
 type Props = {
   label: string;
