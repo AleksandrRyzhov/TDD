@@ -1,13 +1,12 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {View} from 'react-native';
 import AppNavigator from './screens';
 import store from './store';
 
 function App() {
   return (
     <Provider store={store}>
-      <AppNavigator />;
+      <AppNavigator />
     </Provider>
   );
 }

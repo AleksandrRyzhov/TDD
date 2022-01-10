@@ -1,7 +1,7 @@
-import React from 'react';
-import {fireEvent, render, waitFor} from '@testing-library/react-native';
-import WeatherCoordinates from '../WeatherCoordinates';
 import {useNavigation} from '@react-navigation/native';
+import {fireEvent, render, waitFor} from '@testing-library/react-native';
+import React from 'react';
+import WeatherCoordinates from '../WeatherCoordinates';
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -10,20 +10,20 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-describe('App', () => {
+describe('WeatherCoordinates', () => {
   test('Should render correctly', () => {
     const wrapper = render(<WeatherCoordinates />);
     wrapper.getByTestId('weather-coordinates');
   });
 
-  test('Should navigate to weather screen with given coordinates when valid form is submit', async () => {
+  test('Should navigate to Weather screen with given coordinates when valid form is submit', async () => {
     const mockNavigate = jest.fn();
     (useNavigation as jest.Mock).mockReturnValueOnce({navigate: mockNavigate});
 
     const wrapper = render(<WeatherCoordinates />);
 
     const fields = {
-      latitude: wrapper.getByTestId('weather-coordinates-lalitude'),
+      latitude: wrapper.getByTestId('weather-coordinates-latitude'),
       longitude: wrapper.getByTestId('weather-coordinates-longitude'),
     };
 

@@ -45,19 +45,19 @@ describe('WeatherService', () => {
     expect(weather).toEqual(expectedWeather);
   });
 
-//   test('Should return formated CurrentWeather with empty weather', async () => {
-//     const mockResponseEmptyWeather: CurrentWeatherRawResponseDto = {
-//       ...mockResponse,
-//       weather: [],
-//     };
+  test('Should return formated CurrentWeather with empty weather', async () => {
+    const mockResponseEmptyWeather: CurrentWeatherRawResponseDto = {
+      ...mockResponse,
+      weather: [],
+    };
 
-//     nock('https://api.openweathermap.org')
-//       .get('/data/2.5/weather')
-//       .query(true)
-//       .reply(200, mockResponseEmptyWeather);
+    nock('https://api.openweathermap.org')
+      .get('/data/2.5/weather')
+      .query(true)
+      .reply(200, mockResponseEmptyWeather);
 
-//     const {icon, description} = await WeatherService.fetchCurrentWeather(0, 0);
-//     expect(icon).toBeNull();
-//     expect(description).toBeNull();
-//   });
+    const {icon, description} = await WeatherService.fetchCurrentWeather(0, 0);
+    expect(icon).toBeNull();
+    expect(description).toBeNull();
+  });
 });

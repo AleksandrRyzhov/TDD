@@ -1,8 +1,9 @@
 import {render} from '@testing-library/react-native';
 import React from 'react';
-import {Provider} from 'react-redux';
 import {View} from 'react-native';
+import {Provider} from 'react-redux';
 import App from '../App';
+
 import AppNavigator from '../screens';
 import store from '../store';
 
@@ -35,5 +36,6 @@ describe('App', () => {
 
     const wrapper = render(<App />);
     wrapper.getByTestId('mock-provider');
+    expect(providerStore).toBe(store);
   });
 });

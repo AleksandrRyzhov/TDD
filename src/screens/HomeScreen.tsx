@@ -11,14 +11,16 @@ function HomeScreen() {
   return (
     <LinearGradient
       colors={[Colors.LIGHT_GRAY, Colors.DARKER_GRAY]}
-      style={styles.container}
-      testID="home-screen">
+      testID="home-screen"
+      style={styles.container}>
       <View style={styles.title}>
         <Text style={styles.date}>{now.format('MMM DD, YYYY')}</Text>
         <Text style={styles.day}>{now.format('dddd')}</Text>
       </View>
       <WeatherCurrent />
-      <Text testID="home-screen-divider" style={styles.divider}>Or</Text>
+      <Text testID="home-screen-divider" style={styles.divider}>
+        Or
+      </Text>
       <WeatherCoordinates />
     </LinearGradient>
   );
@@ -39,13 +41,13 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   day: {
-      color: Colors.WHITE,
-      fontSize: 21,
+    color: Colors.WHITE,
+    fontSize: 21,
   },
   divider: {
-      color: Colors.WHITE,
-      textAlign: 'center',
-  }
+    color: Colors.WHITE,
+    textAlign: 'center',
+  },
 });
 
 export default HomeScreen;

@@ -1,9 +1,8 @@
-import React from 'react';
-import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
-import WeatherCurrent from '../WeatherCurrent';
 import {useNavigation} from '@react-navigation/native';
+import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
+import React from 'react';
 import LocationService from '../../services/LocationService';
-import {Colors} from '../../constants';
+import WeatherCurrent from '../WeatherCurrent';
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -23,7 +22,7 @@ describe('WeatherCurrent', () => {
     wrapper.getByText('Weather at my position');
   });
 
-  test('Should navigate to weather screen with location', async () => {
+  test('Should navigate to Weather screen with location', async () => {
     const mockNavigate = jest.fn();
     (useNavigation as jest.Mock).mockReturnValueOnce({navigate: mockNavigate});
 
@@ -48,7 +47,7 @@ describe('WeatherCurrent', () => {
 
       jest.spyOn(LocationService, 'getCurrentPosition').mockImplementationOnce(
         () =>
-          new Promise(resolve => {
+          new Promise((resolve) => {
             mockResolve = resolve;
           }),
       );
@@ -84,37 +83,6 @@ describe('WeatherCurrent', () => {
       fireEvent.press(button);
 
       return expect(wrapper.findByTestId('button-loading')).rejects.toThrow();
-    });
-  });
-
-  describe('Error', () => {
-    test('Should be displayed after fetching position has failed', async () => {
-      jest
-        .spyOn(LocationService, 'getCurrentPosition')
-        .mockRejectedValueOnce(new Error(''));
-
-      const wrapper = render(<WeatherCurrent />);
-      const button = wrapper.getByTestId('weather-current');
-      fireEvent.press(button);
-
-      await waitFor(() => {
-        expect(button).toHaveStyle({borderColor: Colors.ERROR});
-      });
-    });
-
-    test('Should be reset after fetching position again', async () => {
-      jest
-        .spyOn(LocationService, 'getCurrentPosition')
-        .mockRejectedValueOnce(new Error(''));
-
-      const wrapper = render(<WeatherCurrent />);
-      const button = wrapper.getByTestId('weather-current');
-      fireEvent.press(button);
-
-      await waitFor(() => {
-        fireEvent.press(button);
-        expect(button).not.toHaveStyle({borderColor: Colors.ERROR});
-      });
     });
   });
 });
